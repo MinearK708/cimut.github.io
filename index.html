@@ -84,21 +84,16 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const googleForm = document.getElementById("googleForm");
             const nextButton = document.getElementById("nextButton");
+            const googleForm = document.getElementById("googleForm");
 
-            // Periksa secara berkala untuk mendeteksi pesan "Terima kasih sudah mengisi"
-            const checkSubmission = setInterval(() => {
-                const formDocument = googleForm.contentDocument || googleForm.contentWindow.document;
-
-                // Deteksi teks "Terima kasih sudah mengisi"
-                if (formDocument.body.textContent.includes("Terimakasih sudah mengisi. Tuhan Yesus Memberkati!")) {
-                    clearInterval(checkSubmission); // Hentikan pemeriksaan
-
-                    // Tampilkan tombol "Selanjutnya"
-                    nextButton.style.display = "block";
-                }
-            }, 1000); // Periksa setiap 1 detik
+            // Tampilkan tombol Selanjutnya setelah form disubmit
+            googleForm.addEventListener('load', () => {
+                // Menunggu Google Form selesai dimuat
+                setTimeout(() => {
+                    nextButton.style.display = "block"; // Menampilkan tombol
+                }, 1000); // Berikan sedikit jeda sebelum menampilkan tombol
+            });
         });
     </script>
 </body>
