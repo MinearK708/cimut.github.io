@@ -60,24 +60,23 @@
     <iframe src="https://forms.gle/r6Qu9MNkHa9tYa58A" id="googleForm"></iframe>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const googleForm = document.getElementById("googleForm");
+        <script>
+     document.addEventListener("DOMContentLoaded", () => {
+         const googleForm = document.getElementById("googleForm");
 
-            // Periksa secara berkala untuk mendeteksi pesan "Terima kasih sudah mengisi"
-            const checkSubmission = setInterval(() => {
-                const formDocument = googleForm.contentDocument || googleForm.contentWindow.document;
+         // Periksa secara berkala untuk mendeteksi pesan "Terima kasih sudah mengisi"
+         const checkSubmission = setInterval(() => {
+             const formDocument = googleForm.contentDocument || googleForm.contentWindow.document;
 
-                // Deteksi teks "Terima kasih sudah mengisi"
-                if (formDocument.body.textContent.includes("Terimakasih sudah mengisi. Tuhan Yesus Memberkati!")) {
-                    clearInterval(checkSubmission); // Hentikan pemeriksaan
+             // Deteksi URL atau teks tertentu dari halaman konfirmasi
+             if (formDocument.body.textContent.includes("Terimakasih sudah mengisi. Tuhan Yesus Memberkati!")) {
+                 clearInterval(checkSubmission); // Hentikan pemeriksaan
 
-                    // Redirect setelah delay 3 detik
-                    setTimeout(() => {
-                        window.location.href = "join-grup.html";
-                    }, 3000);
-                }
-            }, 1000); // Periksa setiap 1 detik
-        });
-    </script>
-</body>
-</html>
+                 // Redirect setelah delay 3 detik
+                 setTimeout(() => {
+                     window.location.href = "join-grup.html";
+                 }, 3000);
+             }
+         }, 1000); // Periksa setiap 1 detik
+     });
+</script>
