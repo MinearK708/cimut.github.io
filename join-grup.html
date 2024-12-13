@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabung Grup WhatsApp</title>
+    <style>
+        /* Atur tampilan dasar halaman */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Tinggi minimal halaman */
+            background-color: #f9f9f9; /* Warna latar belakang lembut */
+            padding: 20px; /* Jeda untuk menghindari konten terlalu rapat */
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        /* Gaya tombol WhatsApp */
+        .wa-button {
+            padding: 12px 20px;
+            background-color: #25D366; /* Warna hijau khas WhatsApp */
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            max-width: 100%; /* Batas maksimal lebar tombol */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Efek transisi */
+        }
+        .wa-button:hover {
+            background-color: #1EBE5A; /* Warna hijau lebih gelap saat hover */
+            transform: scale(1.05); /* Sedikit perbesaran */
+        }
+        .wa-icon {
+            width: 24px;
+            height: 24px;
+        }
+        /* Pastikan responsif di layar kecil */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 18px;
+            }
+            p {
+                font-size: 14px;
+            }
+            .wa-button {
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+            .wa-icon {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Terima Kasih!</h1>
+    <p>Anda telah berhasil mengisi formulir. Klik tombol di bawah untuk bergabung dengan grup WhatsApp:</p>
+    <!-- Masukkan link WhatsApp Grup -->
+    <a href="https://chat.whatsapp.com/DSPauPdwB4GDFqoxggGa2Z" target="_blank" class="wa-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="wa-icon">
+        Gabung Grup WhatsApp
+    </a>
+</body>
+</html>
