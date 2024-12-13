@@ -15,8 +15,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh; /* Tinggi minimal halaman */
-            background-color: #f9f9f9; /* Warna latar belakang lembut */
+            min-height: 100vh;
+            background-color: #f9f9f9;
             padding: 20px;
             box-sizing: border-box;
         }
@@ -30,28 +30,11 @@
         }
         iframe {
             width: 100%;
-            max-width: 600px; /* Batas lebar maksimal form */
+            max-width: 600px;
             height: 500px;
             border: none;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
-        }
-        /* Gaya tombol Lanjut */
-        button {
-            margin-top: 20px;
-            padding: 12px 20px;
-            background-color: #4CAF50;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Efek transisi */
-        }
-        button:hover {
-            background-color: #45a049;
-            transform: scale(1.05); /* Sedikit perbesaran */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         /* Pastikan responsif di layar kecil */
         @media (max-width: 480px) {
@@ -65,11 +48,7 @@
                 font-size: 14px;
             }
             iframe {
-                height: 400px; /* Kurangi tinggi form di layar kecil */
-            }
-            button {
-                font-size: 14px;
-                padding: 10px 15px;
+                height: 400px;
             }
         }
     </style>
@@ -78,13 +57,27 @@
     <h1>Isi Data Diri</h1>
     <p>Silakan isi data diri Anda melalui formulir di bawah ini:</p>
     <!-- Masukkan link Google Form -->
-    <iframe src="https://forms.gle/JNYW67xsr9umEeis9"></iframe>
-    <button onclick="redirectToWhatsApp()">Lanjut ke Grup WhatsApp</button>
+    <iframe src="https://forms.gle/r6Qu9MNkHa9tYa58A" id="googleForm"></iframe>
 
     <script>
-        function redirectToWhatsApp() {
-            window.location.href = "join-grup.html";
-        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const googleForm = document.getElementById("googleForm");
+
+            // Periksa secara berkala untuk mendeteksi pesan "Terima kasih sudah mengisi"
+            const checkSubmission = setInterval(() => {
+                const formDocument = googleForm.contentDocument || googleForm.contentWindow.document;
+
+                // Deteksi teks "Terima kasih sudah mengisi"
+                if (formDocument.body.textContent.includes("Terimakasih sudah mengisi")) {
+                    clearInterval(checkSubmission); // Hentikan pemeriksaan
+
+                    // Redirect setelah delay 3 detik
+                    setTimeout(() => {
+                        window.location.href = "join-grup.html";
+                    }, 3000);
+                }
+            }, 1000); // Periksa setiap 1 detik
+        });
     </script>
 </body>
 </html>
