@@ -68,7 +68,7 @@
                 const formDocument = googleForm.contentDocument || googleForm.contentWindow.document;
 
                 // Deteksi teks "Terima kasih sudah mengisi"
-                if (formDocument.body.textContent.includes("Terimakasih sudah mengisi")) {
+                if (formDocument.body.textContent.includes("Terimakasih sudah mengisi. Tuhan Yesus Memberkati!")) {
                     clearInterval(checkSubmission); // Hentikan pemeriksaan
 
                     // Redirect setelah delay 3 detik
