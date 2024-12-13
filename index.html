@@ -36,6 +36,22 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        /* Tombol Selanjutnya */
+        #nextButton {
+            display: none;
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #nextButton:hover {
+            background-color: #45a049;
+        }
         /* Pastikan responsif di layar kecil */
         @media (max-width: 480px) {
             body {
@@ -50,6 +66,10 @@
             iframe {
                 height: 400px;
             }
+            #nextButton {
+                font-size: 14px;
+                padding: 10px 15px;
+            }
         }
     </style>
 </head>
@@ -59,24 +79,27 @@
     <!-- Masukkan link Google Form -->
     <iframe src="https://forms.gle/r6Qu9MNkHa9tYa58A" id="googleForm"></iframe>
 
+    <!-- Tombol Selanjutnya yang akan muncul setelah form disubmit -->
+    <button id="nextButton" onclick="window.location.href = 'join-grup.html';">Selanjutnya</button>
+
     <script>
-        <script>
-     document.addEventListener("DOMContentLoaded", () => {
-         const googleForm = document.getElementById("googleForm");
+        document.addEventListener("DOMContentLoaded", () => {
+            const googleForm = document.getElementById("googleForm");
+            const nextButton = document.getElementById("nextButton");
 
-         // Periksa secara berkala untuk mendeteksi pesan "Terima kasih sudah mengisi"
-         const checkSubmission = setInterval(() => {
-             const formDocument = googleForm.contentDocument || googleForm.contentWindow.document;
+            // Periksa secara berkala untuk mendeteksi pesan "Terima kasih sudah mengisi"
+            const checkSubmission = setInterval(() => {
+                const formDocument = googleForm.contentDocument || googleForm.contentWindow.document;
 
-             // Deteksi URL atau teks tertentu dari halaman konfirmasi
-             if (formDocument.body.textContent.includes("Terimakasih sudah mengisi. Tuhan Yesus Memberkati!")) {
-                 clearInterval(checkSubmission); // Hentikan pemeriksaan
+                // Deteksi teks "Terima kasih sudah mengisi"
+                if (formDocument.body.textContent.includes("Terimakasih sudah mengisi. Tuhan Yesus Memberkati!")) {
+                    clearInterval(checkSubmission); // Hentikan pemeriksaan
 
-                 // Redirect setelah delay 3 detik
-                 setTimeout(() => {
-                     window.location.href = "join-grup.html";
-                 }, 3000);
-             }
-         }, 1000); // Periksa setiap 1 detik
-     });
-</script>
+                    // Tampilkan tombol "Selanjutnya"
+                    nextButton.style.display = "block";
+                }
+            }, 1000); // Periksa setiap 1 detik
+        });
+    </script>
+</body>
+</html>
